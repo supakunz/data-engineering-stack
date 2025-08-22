@@ -20,7 +20,6 @@ Here are the currently available stacks in this repository:
 | :--- | :--- | :--- |
 | **[Postgres + MinIO](./postgres-minio/)** | A simple stack with a PostgreSQL database and MinIO for S3-compatible object storage. | `PostgreSQL`, `MinIO` |
 | **[MySQL + phpMyAdmin](./mysql-phpmyadmin/)** | A basic MySQL stack with phpMyAdmin for easy web-based database administration. | `MySQL`, `phpMyAdmin` |
-| *... (Add more stacks here as you create them)* | | |
 
 ---
 ## 💡 Contributing a New Stack
