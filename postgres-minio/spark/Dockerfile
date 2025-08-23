@@ -1,21 +1,23 @@
 # spark/Dockerfile
 
-# Build from Debian 11-slim, a base OS similar to Airflow
-FROM debian:11-slim
+# Build from Debian 12-slim, base OS ใหม่ที่มี Python 3.11
+FROM debian:12-slim
 
 # Set base Environment Variables
 ENV SPARK_VERSION=3.4.0
 ENV HADOOP_VERSION=3
 ENV SPARK_HOME=/opt/spark
 ENV PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
-ENV PYSPARK_PYTHON=/usr/bin/python3
+ENV PYSPARK_PYTHON=/usr/bin/python3.11
 
-# Install all necessary dependencies (including Java 17)
+# Install all necessary dependencies (including Java 17 and Python 3.11)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     bash \
     procps \
-    python3 \
+    python3.11 \
+    python3.11-venv \
+    python3.11-distutils \
     openjdk-17-jre-headless \
     && rm -rf /var/lib/apt/lists/*
 
@@ -35,6 +37,8 @@ RUN cd ${SPARK_HOME}/jars \
 
 # Create a user to run Spark for security
 RUN groupadd -r spark --gid 1001 && useradd -r -g spark --uid 1001 spark
+
+# Change ownership of Spark directory to spark user
 RUN chown -R spark:spark ${SPARK_HOME}
 
 # Switch to the spark user

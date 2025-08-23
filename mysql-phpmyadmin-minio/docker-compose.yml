@@ -206,8 +206,8 @@ services:
       - '8081:8080'
       - '7077:7077'
     volumes:
-      - ./spark/jobs:/opt/bitnami/spark/jobs
-      - ./spark/data:/opt/bitnami/spark/data
+      - ./spark/jobs:/opt/spark/jobs
+      - ./spark/data:/opt/spark/data
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080"]
       interval: 30s
@@ -232,8 +232,8 @@ services:
     depends_on:
       - spark-master
     volumes:
-      - ./spark/jobs:/opt/bitnami/spark/jobs
-      - ./spark/data:/opt/bitnami/spark/data
+      - ./spark/jobs:/opt/spark/jobs
+      - ./spark/data:/opt/spark/data
     networks:
       - default
 

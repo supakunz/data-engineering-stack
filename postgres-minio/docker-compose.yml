@@ -256,8 +256,8 @@ services:
     depends_on:
       - spark-master
     volumes:
-      - ./spark/jobs:/opt/bitnami/spark/jobs
-      - ./spark/data:/opt/bitnami/spark/data
+      - ./spark/jobs:/opt/spark/jobs
+      - ./spark/data:/opt/spark/data
     networks:
       - default
 
@@ -276,8 +276,8 @@ services:
   #   depends_on:
   #     - spark-master
   #   volumes:
-  #     - ./spark/jobs:/opt/bitnami/spark/jobs
-  #     - ./spark/data:/opt/bitnami/spark/data
+  #     - ./spark/jobs:/opt/spark/jobs
+  #     - ./spark/data:/opt/spark/data
   #   networks:
   #     - default
 
